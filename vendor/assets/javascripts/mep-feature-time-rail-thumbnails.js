@@ -92,7 +92,7 @@
         time_float.css('top', '-' + new_height + 'px');
         time_float.find('.mejs-time-float-corner').css('top', new_height - 3 + 'px');
         time_float.css('height', 'auto');
-        time_float.css('width', w + 'px');
+        time_float.css('width', (parseInt(w)+2) + 'px');
         time_float.find('.mejs-time-float-current').css('position', 'static');
         time_float.find('.mejs-plugin-time-float-thumbnail').css('position', 'static');
 
@@ -100,7 +100,11 @@
         time_float.find('span').css('-webkit-border-radius', '0').css('border-radius', '0');
 
         setThumbnailImage(cues[0].text);
-
+        
+        //Set initial thumbnail
+        $('.mejs-plugin-time-float-thumbnail').css('height', h);
+        $('.mejs-plugin-time-float-thumbnail').css('width', w);
+        
         // Add an observer to the .mejs-time-float-current and change the thumbnail
         // when the observer is triggered
         var observer = new MutationObserver(function(mutations){
